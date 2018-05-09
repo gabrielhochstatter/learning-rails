@@ -5,8 +5,15 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
 
-    @article.save
-    redirect_to @article
+    if @article.save
+      redirect_to @article
+    else
+      render 'new'
+    end
+  end
+
+  def index
+    @articles = Article.all
   end
 
   def show
