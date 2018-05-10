@@ -12,7 +12,7 @@
 <h3>Comments:</h3>
 <% @article.comments.each do |comment| %>
   <p>
-    <strong><%= comment.commenter %></strong> says:
+    <strong><%= comment.commenter %></strong> said at <%= comment.created_at.strftime("%I:%M%p") %>:
   </p>
   <p>
     <%= comment.body %>
