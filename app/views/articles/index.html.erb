@@ -1,6 +1,10 @@
 
 <h1>Listing articles</h1>
 
+<%= render 'login' %>
+
+<br>
+
 <table>
   <tr>
     <th>Title</th>
@@ -12,12 +16,19 @@
     <tr>
       <td><%= article.title %> </td>
       <td><%= article.text %> </td>
-      <td><%= link_to 'Show', article_path(article) %> </td>
-      <td><%= link_to 'Edit', edit_article_path(article) %> </td>
-      <td><%= link_to 'Destroy', article_path(article),
+      <td>
+        <%= link_to 'Show', article_path(article) %>
+      </td>
+      <% if user_signed_in? %>
+      <td>
+        <%= link_to 'Edit', edit_article_path(article) %> </td>
+      <td>
+        <%= link_to 'Destroy', article_path(article),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </tr>
+
   <% end %>
 </table>
 
