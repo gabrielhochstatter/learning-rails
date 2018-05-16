@@ -3,4 +3,4 @@ rvnm:
   - 2.4.1
 
 before_script:
-  - bundle exec db:migrate
+  - bundle exec rake db:migrate
